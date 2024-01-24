@@ -11,18 +11,18 @@
 							"Name": "Galerija",
 							"Photos": [
 								{
-									"Path": "/Public/Images/slikaVR.jpg",
+									"Path": "/Images/slikaVR.jpg",
 									"Name": "test"
 								},
 								{								
-									"Path": "/Public/Images/slikaVR2.jpg",
+									"Path": "/Images/slikaVR2.jpg",
 									"Name": "test2"
 								}
 							]
 						},
 						{
 							"Name": "Audio",
-							"FilePath": "/Public/Sounds/zvukVR.wav"
+							"FilePath": "/Sounds/zvukVR.wav"
 						}
 					],
 					"Details": "Radimo cjelovita rješenja složenih virtualnih šetnji predstavljenih putem uređaja virtualne stvarnosti, smartphone uređaja i naših N3VR naočala (inspiriranih Google cardboardom). Produkcija VR aplikacija uključuje snimanje virtuallnih panorama i izradu virtualnih šetnji, snimanje 360 videa, izradu 3D animacija."
@@ -34,18 +34,18 @@
 							"Name": "Galerija",
 							"Photos": [
 								{
-									"Path": "/Public/Images/slikaAR.jpg",
+									"Path": "/Images/slikaAR.jpg",
 									"Name": "test"
 								},
 								{								
-									"Path": "/Public/Images/slikaAR2.jpg",
+									"Path": "/Images/slikaAR2.jpg",
 									"Name": "test"
 								}
 							]
 						},
 						{
 							"Name": "Audio",
-							"FilePath": "/Public/Sounds/zvukAR.wav"
+							"FilePath": "/Sounds/zvukAR.wav"
 						}
 					],
 					"Details": "Aplikacijama proširene stvarnosti (Augmented Reality; AR) korisniku se omogućava da putem smart mobilnog ili drugih sličnih uređaja vidi okolinu obogaćenu (proširenu) računalno generiranim sadržajima poput zvuka, slike, 2D, 3D animiranim likovima. Ova se tehnologija aplicira za različite potrebe - od zabave do dizajna, arhitekture, edukacije i navigacije."
@@ -63,18 +63,18 @@
 							"Name": "Gallery",
 							"Photos": [
 								{
-									"Path": "/Public/Images/imageVR.jpg",
+									"Path": "/Images/imageVR.jpg",
 									"Name": "test"
 								},
 								{								
-									"Path": "/Public/Images/imageVR2.jpg",
+									"Path": "/Images/imageVR2.jpg",
 									"Name": "test2"
 								}
 							]
 						},
 						{
 							"Name": "Audio",
-							"FilePath": "/Public/Sounds/soundVR.wav"
+							"FilePath": "/Sounds/soundVR.wav"
 						}
 					],
 					"Details": "We make complete solutions of complex virtual walks presented through virtual reality devices, smartphones and our N3VR glasses (inspired by Google cardboard). The production of VR applications includes the recording of virtual panoramas and the creation of virtual walks, the recording of 360 videos, and the creation of 3D animations."
@@ -86,18 +86,18 @@
 							"Name": "Gallery",
 							"Photos": [
 								{
-									"Path": "/Public/Images/imageAR.jpg",
+									"Path": "/Images/imageAR.jpg",
 									"Name": "test3"
 								},
 								{								
-									"Path": "/Public/Images/imageAR2.jpg",
+									"Path": "/Images/imageAR2.jpg",
 									"Name": "test4"
 								}
 							]
 						},
 						{
 							"Name": "Audio",
-							"FilePath": "/Public/Sounds/soundAR.wav"
+							"FilePath": "/Sounds/soundAR.wav"
 						}
 					],
 					"Details" : "Augmented Reality (AR) applications allow the user to see the environment enriched (expanded) with computer-generated content such as sound, images, 2D, 3D animated characters via smart mobile or other similar devices. This technology is applied for various needs - from entertainment to design, architecture, education and navigation."
