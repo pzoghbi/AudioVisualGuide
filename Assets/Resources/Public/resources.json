@@ -1,0 +1,104 @@
+{
+	"TranslatedContents": [
+		{
+			"LanguageId": 1,
+			"LanguageName": "Hrvatski",
+			"Topics": [
+				{
+					"Name": "Tema 1",
+					"Media": [
+						{
+							"Name": "Galerija",
+							"Photos": [
+								{
+									"Path": "/files/test.png",
+									"Name": "test"
+								},
+								{								
+									"Path": "/files/test2.png",
+									"Name": "test2"
+								}
+							]
+						},
+						{
+							"Name": "Audio",
+							"FilePath": "/files/zvuk1.mp3"
+						}
+					]
+				},
+				{
+					"Name": "Tema 2",
+					"Media": [
+						{
+							"Name": "Galerija",
+							"Photos": [
+								{
+									"Path": "/files/test.png",
+									"Name": "test"
+								},
+								{								
+									"Path": "/files/test.png",
+									"Name": "test"
+								}
+							]
+						},
+						{
+							"Name": "Audio",
+							"FilePath": "/files/zvuk2.mp3"
+						}
+					]
+				}
+			]
+		},
+		{
+			"LanguageId": 2,
+			"LanguageName": "English",
+			"Topics": [
+				{
+					"Name": "Topic 1",
+					"Media": [
+						{
+							"Name": "Gallery",
+							"Photos": [
+								{
+									"Path": "/files/test.png",
+									"Name": "test"
+								},
+								{								
+									"Path": "/files/test2.png",
+									"Name": "test2"
+								}
+							]
+						},
+						{
+							"Name": "Audio",
+							"FilePath": "/files/audio1.mp3"
+						}
+					]
+				},
+				{
+					"Name": "Topic 2",
+					"Media": [
+						{
+							"Name": "Gallery",
+							"Photos": [
+								{
+									"Path": "/files/test3.png",
+									"Name": "test3"
+								},
+								{								
+									"Path": "/files/test4.png",
+									"Name": "test4"
+								}
+							]
+						},
+						{
+							"Name": "Audio",
+							"FilePath": "/files/audio2.mp3"
+						}
+					]
+				}
+			]
+		}
+	]
+}
