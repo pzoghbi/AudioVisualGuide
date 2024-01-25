@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -17,8 +18,9 @@ public class TranslatedContentLoader : MonoBehaviour
     const string k_PublicFolderPath = "Assets/Resources/Public";
     const string k_JsonFileName = "resources.json";
 
-    List<string> m_FilePaths = new List<string>();
+    [SerializeField] TMP_Text m_LoadingText;
     TranslatedContent m_TranslatedContent;
+    public event Action TranslatedContentLoaded;
 
     string RepositoryURL => $"{k_BaseURL}/{k_UserName}/{k_Repository}/{k_Branch}/";
     string DataPath => Application.persistentDataPath;
@@ -40,7 +42,8 @@ public class TranslatedContentLoader : MonoBehaviour
 
             if (webRequest.result == UnityWebRequest.Result.Success)
             {
-                Debug.Log($"Successfully downloaded {outputFilePath.Split("/").Last()}.");
+                string loadingText = $"Successfully downloaded {outputFilePath.Split("/").Last()}.";
+                m_LoadingText.text = loadingText;
                 callback?.Invoke();
             }
             else
@@ -55,28 +58,32 @@ public class TranslatedContentLoader : MonoBehaviour
 
     void OnJsonManifestDownloaded()
     {
+        StartCoroutine(OnJsonManifestDownloadedRi());
+    }
+
+    IEnumerator OnJsonManifestDownloadedRi()
+    {
         string json = string.Empty;
 
         // Parse downloaded file
         try
         {
-            Debug.Log("Parsing...");
             json = File.ReadAllText(JsonFilePath);
-            Debug.Log("Parsing successful.");
         }
         catch (Exception e)
         {
             Debug.LogError(e);
             // Handle error (etc. use fallback)
-            return;
+            yield break;
         }
 
         // Cache translated content
         m_TranslatedContent = ParseTranslatedContent(json);
-        if (m_TranslatedContent == null) return;
+        if (m_TranslatedContent == null) yield break;
 
-        print("Starting Media download...");
-        StartCoroutine(DownloadMedia(m_TranslatedContent));
+        yield return DownloadMedia(m_TranslatedContent);
+
+        TranslatedContentLoaded?.Invoke();
     }
 
     TranslatedContent ParseTranslatedContent(string json)

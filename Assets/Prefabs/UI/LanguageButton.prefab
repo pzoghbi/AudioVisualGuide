@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3229357991847164856}
   - component: {fileID: 3810010884107310139}
   - component: {fileID: 5922998572337747348}
+  - component: {fileID: 532092327237454021}
   m_Layer: 5
   m_Name: LanguageButton
   m_TagString: Untagged
@@ -122,6 +123,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &532092327237454021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2498114967059391466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db83a03484ba964cbe4efd99b14e24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LanguageNameText: {fileID: 7583813372028096803}
 --- !u!1 &4523797486107471223
 GameObject:
   m_ObjectHideFlags: 0
