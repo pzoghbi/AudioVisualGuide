@@ -6,6 +6,8 @@ using UnityEngine;
 public class MainManager : Singleton<MainManager>
 {
     [HideInInspector] public Language SelectedLanguage;
+    public Action<List<Topic>> OnLanguageSelected;
+    public Action<Topic> OnTopicSelected;
 
     [SerializeField] List<GameObject> m_Pages = new();
     int pageIndex = 0;

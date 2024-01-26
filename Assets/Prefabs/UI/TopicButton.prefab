@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 1886430657332698488}
   - component: {fileID: 153942612446819067}
   - component: {fileID: 7264234292714206036}
+  - component: {fileID: 3849058245114102651}
   m_Layer: 5
   m_Name: TopicButton
   m_TagString: Untagged
@@ -335,6 +336,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3849058245114102651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465392917778515242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1441bb5e80c2244886b77668021ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TopicName: {fileID: 6900103276708050915}
+  m_TopicNumber: {fileID: 6400029217977685251}
 --- !u!1 &2055592366391471918
 GameObject:
   m_ObjectHideFlags: 0
