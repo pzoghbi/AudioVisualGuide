@@ -22,7 +22,6 @@ public class LanguageButton : MonoBehaviour
     {
         MainManager.Instance.SelectedLanguage = m_Language;
         MainManager.Instance.GoToNextPage();
-        MainManager.Instance.OnLanguageSelected?.Invoke(m_Language.Topics);
     }
 
     public void SetLanguage(Language language)

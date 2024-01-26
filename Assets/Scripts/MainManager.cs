@@ -6,19 +6,24 @@ using UnityEngine;
 public class MainManager : Singleton<MainManager>
 {
     [HideInInspector] public Language SelectedLanguage;
-    public Action<List<Topic>> OnLanguageSelected;
     public Action<Topic> OnTopicSelected;
 
     [SerializeField] List<GameObject> m_Pages = new();
     int pageIndex = 0;
+
+    public Topic SelectedTopic { get; set; } = null;
 
     new void Awake()
     {
         base.Awake();
         if (!m_Pages.Any())
         {
-            Debug.LogError("Pages not assigned.");
-            // Fallback method etc.
+            Debug.LogWarning("Pages not assigned.");
+            // Fallback method ... Example:
+            foreach(Transform transform in FindObjectOfType<Canvas>().transform)
+            {
+                m_Pages.Add(transform.gameObject);
+            }
         }
     }
 

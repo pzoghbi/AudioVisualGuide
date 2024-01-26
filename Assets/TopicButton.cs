@@ -25,13 +25,16 @@ public class TopicButton : MonoBehaviour
 
     void HandleButtonClicked()
     {
+        // Go to Details Page
+        MainManager.Instance.SelectedTopic = m_Topic;
         MainManager.Instance.GoToNextPage();
-        MainManager.Instance.OnTopicSelected?.Invoke(m_Topic);
     }
 
+    // Binds Topic data
     public void SetTopic(Topic topic, int order)
     {
         m_Topic = topic;
+        m_Topic.Number = order;
         m_TopicName.text = HandleName(topic.Name);
         m_TopicNumber.text = order.ToString();
     }

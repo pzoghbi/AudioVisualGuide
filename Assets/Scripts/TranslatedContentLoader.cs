@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -151,6 +152,8 @@ public class Topic
     public string Name;
     public string Details;
     public List<Media> Media;
+
+    public int Number;
 }
 
 [Serializable]
@@ -158,4 +161,30 @@ public class Photo
 {
     public string Path;
     public string Name;
+    public Sprite Sprite { get => GetSprite(); set => m_Sprite = value; }
+    Sprite m_Sprite;
+
+    public Sprite GetSprite()
+    {
+        if (m_Sprite == null)
+        {
+            string path = $"{Application.persistentDataPath}{Path}";
+            if (File.Exists(path))
+            {
+                var textureBytes = File.ReadAllBytes($"{path}");
+                Texture2D texture = new Texture2D(2, 2);
+                if (texture.LoadImage(textureBytes))
+                {
+                    var rect = new Rect(0, 0, texture.width, texture.height);
+                    m_Sprite = Sprite.Create(texture, rect, Vector2.zero);
+                }
+            }
+            else
+            {
+                Debug.LogError($"Image doesn't exist on {path}.");
+            }
+        }
+
+        return m_Sprite;
+    }
 }

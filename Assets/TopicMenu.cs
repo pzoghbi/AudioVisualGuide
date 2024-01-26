@@ -10,12 +10,12 @@ public class TopicMenu : MonoBehaviour, IPopulatableMenu
 
     void Awake()
     {
-        m_IMenu = this;    
+        m_IMenu = this;
     }
 
-    void Start()
+    void OnEnable()
     {
-        MainManager.Instance.OnLanguageSelected += SetTopics;
+        SetTopics(MainManager.Instance.SelectedLanguage.Topics);
     }
 
     void SetTopics(List<Topic> topics)
@@ -41,10 +41,5 @@ public class TopicMenu : MonoBehaviour, IPopulatableMenu
             Instantiate(m_TopicButtonPrefab, transform)
                 .SetTopic(topic, order++);
         }
-    }
-
-    void OnDestroy()
-    {
-        MainManager.Instance.OnLanguageSelected -= SetTopics;    
     }
 }
