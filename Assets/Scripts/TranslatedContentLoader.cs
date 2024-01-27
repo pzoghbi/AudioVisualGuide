@@ -184,6 +184,7 @@ public class TranslatedContentLoader : MonoBehaviour
             }
 
             media.AudioClip = DownloadHandlerAudioClip.GetContent(webRequest);
+            media.AudioClip.name = media.Name;
         }
     }
 }
