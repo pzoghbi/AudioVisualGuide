@@ -5,8 +5,10 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 using static TranslatedContentLoader;
 
 public class TranslatedContentLoader : MonoBehaviour
@@ -21,17 +23,53 @@ public class TranslatedContentLoader : MonoBehaviour
     const string k_JsonFileName = "resources.json";
 
     [SerializeField] TMP_Text m_LoadingText;
+    [SerializeField] Image m_Logo;
     TranslatedContent m_TranslatedContent;
-    public event Action TranslatedContentLoaded;
+    public event Action ContentLoaded;
+    public event Action ContentLoading;
 
     string RepositoryURL => $"{k_BaseURL}/{k_UserName}/{k_Repository}/{k_Branch}/";
     string DataPath => Application.persistentDataPath;
     string JsonFilePath => $"{DataPath}/{k_JsonFileName}";
     public TranslatedContent TranslatedContent => m_TranslatedContent;
 
+    void OnEnable()
+    {
+        ContentLoaded += OnContentLoaded;
+        ContentLoading += OnContentLoading;
+    }
+
+    void OnDisable ()
+    {
+        ContentLoaded -= OnContentLoaded;    
+        ContentLoading -= OnContentLoading;    
+    }
+
+    void OnContentLoaded()
+    {
+        if (m_Logo.TryGetComponent<ActiveObjectRotator>(out var rotator))
+        {
+            rotator.ResetRotation();
+            rotator.enabled = false;
+        }
+    }
+
+    void OnContentLoading()
+    {
+        if (m_Logo.TryGetComponent<ActiveObjectRotator>(out var rotator))
+        {
+            rotator.enabled = true;
+        }
+        else
+        {
+            m_Logo.AddComponent<ActiveObjectRotator>();
+        }
+    }
+
     IEnumerator Start()
     {
         string url = $"{RepositoryURL}/{k_PublicFolderPath}/{k_JsonFileName}";
+        ContentLoading?.Invoke();
         yield return DownloadFileRi(url, JsonFilePath, OnJsonManifestDownloaded);
     }
 
@@ -85,7 +123,7 @@ public class TranslatedContentLoader : MonoBehaviour
 
         yield return DownloadMedia(m_TranslatedContent);
 
-        TranslatedContentLoaded?.Invoke();
+        ContentLoaded?.Invoke();
     }
 
     TranslatedContent ParseTranslatedContent(string json)

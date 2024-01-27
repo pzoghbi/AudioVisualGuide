@@ -8,10 +8,22 @@ public class ActiveObjectRotator : MonoBehaviour
 
     void Update()
     {
-        // Example code (for non-blocking UI)
+        RotateObject();
+    }
+
+    void RotateObject()
+    {
         if (gameObject.activeSelf)
         {
-            transform.Rotate(Vector3.right * m_Angles * Time.deltaTime);
+            transform.Rotate(Vector3.back * m_Angles * Time.deltaTime);
+        }
+    }
+
+    public void ResetRotation()
+    {
+        if (gameObject.activeSelf)
+        {
+            transform.rotation = Quaternion.identity;
         }
     }
 }

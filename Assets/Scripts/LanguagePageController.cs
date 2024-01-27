@@ -25,12 +25,12 @@ public class LanguagePageController : MonoBehaviour, IPopulatableMenu
 
     void OnEnable()
     {
-        m_ContentLoader.TranslatedContentLoaded += OnContentLoaded;
+        m_ContentLoader.ContentLoaded += OnContentLoaded;
     }
 
     void OnDisable()
     {
-        m_ContentLoader.TranslatedContentLoaded -= OnContentLoaded;
+        m_ContentLoader.ContentLoaded -= OnContentLoaded;
     }
 
     void OnContentLoaded()
