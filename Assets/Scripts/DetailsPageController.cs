@@ -19,6 +19,8 @@ public class DetailsPageController : MonoBehaviour
     [SerializeField] Sprite m_PauseSprite;
 
     AudioSource m_AudioSource;
+    int galleryImageIndex = 0;
+    float m_GalleryChangePhotoDelay = 5;
 
     void Awake()
     {
@@ -53,5 +55,19 @@ public class DetailsPageController : MonoBehaviour
         if (m_TopicDetails) m_TopicDetails.text = topic.Details;
         m_GalleryPhoto.sprite = topic.Media[0].Photos[0].Sprite;
         m_AudioSource.clip = topic.Media[1].AudioClip;
+        StartCoroutine(SequenceGalleryPhotosRi());
+    }
+
+    IEnumerator SequenceGalleryPhotosRi()
+    {
+        yield return new WaitForSecondsRealtime(m_GalleryChangePhotoDelay);
+        var media = MainManager.Instance.SelectedTopic.Media[0];
+        if (media.Photos.Count == 0)
+            yield break;
+
+        galleryImageIndex = (galleryImageIndex + 1) % media.Photos.Count;
+        m_GalleryPhoto.sprite = media.Photos[galleryImageIndex].Sprite;
+
+        StartCoroutine(SequenceGalleryPhotosRi());
     }
 }
