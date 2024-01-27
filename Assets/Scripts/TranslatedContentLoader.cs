@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
+using static TranslatedContentLoader;
 
 public class TranslatedContentLoader : MonoBehaviour
 {
@@ -111,15 +112,40 @@ public class TranslatedContentLoader : MonoBehaviour
                             );
                         }
                     }
-                    else {
+                    else
+                    {
                         // download audio
-                        yield return DownloadFileRi(
-                            $"{RepositoryURL}/{k_PublicFolderPath}{media.FilePath}",
-                            $"{DataPath}{media.FilePath}"
-                        );
+                        string url = $"{RepositoryURL}/{k_PublicFolderPath}{media.FilePath}";
+                        string filePath = $"{DataPath}{media.FilePath}";
+                        yield return DownloadFileRi(url, filePath);
+                        yield return BindAudioClipRi(media);
                     }
                 }
             }
+        }
+    }
+
+    IEnumerator BindAudioClipRi(Media media)
+    {
+        string path = $"{DataPath}{media.FilePath}";
+        if (!File.Exists(path))
+        {
+            Debug.Log($"File doesn't exist on {path}.");
+            yield break;
+        }
+
+        var webRequest = UnityWebRequestMultimedia.GetAudioClip(path, AudioType.UNKNOWN);
+        using (webRequest)
+        {
+            yield return webRequest.SendWebRequest();
+
+            if (webRequest.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(webRequest.error);
+                yield break;
+            }
+
+            media.AudioClip = DownloadHandlerAudioClip.GetContent(webRequest);
         }
     }
 }
@@ -144,6 +170,7 @@ public class Media
     public string Name;
     public string FilePath;
     public List<Photo> Photos;
+    public AudioClip AudioClip;
 }
 
 [Serializable]
