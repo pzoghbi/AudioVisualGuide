@@ -3012,6 +3012,7 @@ MonoBehaviour:
   m_TopicDetails: {fileID: 0}
   m_GalleryPhoto: {fileID: 1993497881}
   m_AudioSeeker: {fileID: 1909888918}
+  m_AudioTime: {fileID: 1085911890}
   m_PlayButton: {fileID: 4434826}
   m_PlaySprite: {fileID: 21300000, guid: 2cb8334ac9ac8b14683d33955ded4d1e, type: 3}
   m_PauseSprite: {fileID: 21300000, guid: dd7fd4f7528c1b44ea19a89eb8508e38, type: 3}

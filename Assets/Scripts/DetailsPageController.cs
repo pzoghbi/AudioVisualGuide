@@ -14,6 +14,7 @@ public class DetailsPageController : MonoBehaviour
     [SerializeField] Image m_GalleryPhoto;
     [Header("Controls")]
     [SerializeField] Slider m_AudioSeeker;
+    [SerializeField] TMP_Text m_AudioTime;
     [SerializeField] Button m_PlayButton;
     [SerializeField] Sprite m_PlaySprite;
     [SerializeField] Sprite m_PauseSprite;
@@ -31,8 +32,26 @@ public class DetailsPageController : MonoBehaviour
 
     void Update()
     {
+        UpdateAudioSeeker();
+    }
+
+    void UpdateAudioSeeker()
+    {
         if (m_AudioSource.clip)
-            m_AudioSeeker.value = m_AudioSource.time / m_AudioSource.clip.length;    
+        {
+            m_AudioSeeker.value = m_AudioSource.time / m_AudioSource.clip.length;
+            m_AudioTime.text = $"{GetFloatAsTime(m_AudioSource.time)} / {GetFloatAsTime(m_AudioSource.clip.length)}";
+        }
+    }
+
+    string GetFloatAsTime(float time)
+    {
+        const float spm = 60;
+        int minutes = (int) (time / spm);
+        int seconds = (int) (time - minutes * spm);
+        string str_minutes = minutes < 10 ? $"0{minutes}" : minutes.ToString();
+        string str_seconds = seconds < 10 ? $"0{seconds}" : seconds.ToString();
+        return $"{str_minutes}:{str_seconds}";
     }
 
     public void SeekAudio(float value)
