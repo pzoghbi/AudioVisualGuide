@@ -24,11 +24,18 @@ public class DetailsPageController : MonoBehaviour
     {
         m_AudioSource = m_AudioSeeker.GetComponent<AudioSource>();
         m_AudioSeeker.onValueChanged.AddListener(SeekAudio);
+        m_PlayButton.onClick.AddListener(m_AudioSource.Play);
     }
-    
+
+    void Update()
+    {
+        if (m_AudioSource.clip)
+            m_AudioSeeker.value = m_AudioSource.time / m_AudioSource.clip.length;    
+    }
+
     public void SeekAudio(float value)
     {
-        m_AudioSource.time = value;
+        m_AudioSource.time = value * m_AudioSource.clip.length;
     }
 
     void OnEnable()
@@ -45,5 +52,6 @@ public class DetailsPageController : MonoBehaviour
         if (m_TopicNumber) m_TopicNumber.text = topic.Number.ToString();
         if (m_TopicDetails) m_TopicDetails.text = topic.Details;
         m_GalleryPhoto.sprite = topic.Media[0].Photos[0].Sprite;
+        m_AudioSource.clip = topic.Media[1].AudioClip;
     }
 }
