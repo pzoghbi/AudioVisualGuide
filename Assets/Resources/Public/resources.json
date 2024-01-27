@@ -22,7 +22,7 @@
 						},
 						{
 							"Name": "Audio",
-							"FilePath": "/Sounds/zvukVR.wav"
+							"FilePath": "/Sounds/zvukVR.mp3"
 						}
 					],
 					"Details": "Radimo cjelovita rješenja složenih virtualnih šetnji predstavljenih putem uređaja virtualne stvarnosti, smartphone uređaja i naših N3VR naočala (inspiriranih Google cardboardom). Produkcija VR aplikacija uključuje snimanje virtuallnih panorama i izradu virtualnih šetnji, snimanje 360 videa, izradu 3D animacija."
@@ -45,7 +45,7 @@
 						},
 						{
 							"Name": "Audio",
-							"FilePath": "/Sounds/zvukAR.wav"
+							"FilePath": "/Sounds/zvukAR.mp3"
 						}
 					],
 					"Details": "Aplikacijama proširene stvarnosti (Augmented Reality; AR) korisniku se omogućava da putem smart mobilnog ili drugih sličnih uređaja vidi okolinu obogaćenu (proširenu) računalno generiranim sadržajima poput zvuka, slike, 2D, 3D animiranim likovima. Ova se tehnologija aplicira za različite potrebe - od zabave do dizajna, arhitekture, edukacije i navigacije."
@@ -74,7 +74,7 @@
 						},
 						{
 							"Name": "Audio",
-							"FilePath": "/Sounds/soundVR.wav"
+							"FilePath": "/Sounds/soundVR.mp3"
 						}
 					],
 					"Details": "We make complete solutions of complex virtual walks presented through virtual reality devices, smartphones and our N3VR glasses (inspired by Google cardboard). The production of VR applications includes the recording of virtual panoramas and the creation of virtual walks, the recording of 360 videos, and the creation of 3D animations."
@@ -97,7 +97,7 @@
 						},
 						{
 							"Name": "Audio",
-							"FilePath": "/Sounds/soundAR.wav"
+							"FilePath": "/Sounds/soundAR.mp3"
 						}
 					],
 					"Details" : "Augmented Reality (AR) applications allow the user to see the environment enriched (expanded) with computer-generated content such as sound, images, 2D, 3D animated characters via smart mobile or other similar devices. This technology is applied for various needs - from entertainment to design, architecture, education and navigation."
